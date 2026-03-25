@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đàm Thị Thanh Tâm | Digital Marketing Executive</title>
+    <!-- Import Google Font cho Tiêu đề -->
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Import FontAwesome cho Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ================= HỆ THỐNG NHẬN DIỆN & BIẾN CSS ================= */
+        :root {
+            --primary: #002147; /* Navy Blue */
+            --secondary: #FFFFFF; /* White */
+            --accent-start: #007BFF;
+            --accent-end: #00C6FF;
+            --accent-gradient: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+            --bg-light: #F8F9FA; /* Xám nhạt cho Khối 4 */
+            
+            --font-heading: 'League Spartan', sans-serif;
+            --font-body: 'Cambria', Georgia, serif;
+        }
+
+        /* ================= RESET & GLOBAL STYLES ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--primary);
+            background-color: var(--secondary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        section { padding: 100px 20px 80px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        
+        /* ================= HEADER & NAVIGATION ================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,33,71,0.05);
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--accent-start); }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: var(--secondary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* ================= KHỐI 1: HERO SECTION ================= */
+        #hero {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--secondary);
+            padding-top: 120px;
+        }
+        .hero-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 50px;
+            width: 100%;
+        }
+        .hero-content { flex: 1; max-width: 800px; }
+        .hero-content h1 { font-size: 4rem; margin-bottom: 10px; color: var(--primary); }
+        .hero-content h2 { font-size: 2rem; margin-bottom: 30px; font-weight: 500; color: #555; }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+
+        /* ================= KHỐI 2: ABOUT ME ================= */
+        #about {
+            background-color: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+        }
+        #about .section-title { color: var(--secondary); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-inline: auto;
+        }
+        .about-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+        .about-card:hover { transform: translateY(-10px); }
+        .about-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--accent-end); }
+
+        /* ================= KHỐI 3: HỌC VẤN & THÀNH TỰU ================= */
+        #education { background-color: var(--secondary); }
+        .edu-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .edu-box {
+            border: 2px solid rgba(0, 33, 71, 0.15);
+            border-radius: 15px;
+            padding: 40px;
+            background-color: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+        .edu-box:hover {
+            box-shadow: 0 10px 30px rgba(0, 33, 71, 0.05);
+        }
+        .edu-box h3 { margin-bottom: 25px; font-size: 1.8rem; color: var(--primary); display: flex; align-items: center; gap: 10px;}
+        .edu-box h3 i { color: var(--accent-start); }
+        .edu-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #ddd; }
+        .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .edu-item h4 { font-size: 1.3rem; margin-bottom: 5px; color: var(--primary); font-family: var(--font-heading); font-weight: 600; }
+        .edu-item p { font-weight: 600; color: #444; margin-bottom: 2px;}
+        .edu-item span { font-style: italic; color: #666; font-size: 0.95rem; }
+
+        /* ================= KHỐI 4: KINH NGHIỆM CHUYÊN MÔN ================= */
+        #experience { background-color: var(--bg-light); }
+        .exp-card {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-start);
+        }
+        .exp-header { margin-bottom: 25px; }
+        .exp-header h3 { font-size: 1.8rem; color: var(--primary); }
+        .exp-header h4 { font-size: 1.2rem; color: #555; font-weight: 500; }
+        .exp-header span { font-style: italic; color: var(--accent-start); }
+        .exp-content ul { padding-left: 20px; margin-bottom: 20px; }
+        .exp-content li { margin-bottom: 10px; }
+        .highlight-text { font-weight: bold; color: var(--primary); }
+        .exp-links { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap;}
+        .doc-link {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 10px 20px; background: #fff; border: 1px solid var(--primary);
+            color: var(--primary); text-decoration: none; border-radius: 8px; font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .doc-link:hover { background: var(--primary); color: #fff; }
+
+        /* ================= KHỐI 5: DỰ ÁN CÁ NHÂN ================= */
+        #projects {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+        #projects .section-title { color: var(--secondary); }
+        .project-intro { text-align: center; margin-bottom: 40px; font-size: 1.1rem; opacity: 0.9; }
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .project-card {
+            background: rgba(255,255,255,0.03);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px; padding: 2px;
+            background: var(--accent-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            z-index: -1;
+        }
+        .project-card h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-end); }
+        .project-card ul { padding-left: 20px; margin-bottom: 20px; flex-grow: 1;}
+        .project-card li { margin-bottom: 15px; }
+        .core-value {
+            background: rgba(0, 198, 255, 0.1);
+            padding: 20px; border-left: 4px solid var(--accent-start);
+            font-style: italic; margin-bottom: 20px;
+        }
+        .video-placeholder {
+            width: 100%; height: 200px; background: #111; border-radius: 10px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; color: #888;
+            margin-top: 20px; border: 1px solid #444; cursor: pointer; transition: 0.3s;
+        }
+        .video-placeholder:hover { background: #222; }
+
+        /* ================= KHỐI 6: KỸ NĂNG & NGÔN NGỮ ================= */
+        #skills { background-color: var(--secondary); }
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .skill-box { padding: 30px; background: var(--bg-light); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);}
+        .skill-box h3 { margin-bottom: 20px; font-size: 1.5rem; color: var(--primary); border-bottom: 2px solid var(--accent-start); padding-bottom: 10px; display: inline-block;}
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;}
+        .tag {
+            background: var(--secondary); border: 1px solid var(--primary); color: var(--primary);
+            padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;
+        }
+        .soft-skills { padding: 0; }
+        .soft-skills li { margin-bottom: 12px; padding-left: 25px; position: relative; list-style: none;}
+        .soft-skills li::before {
+            content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; left: 0; color: var(--accent-start);
+        }
+
+        /* ================= KHỐI 7: CTA & LIÊN HỆ ================= */
+        #contact { background-color: var(--primary); color: var(--secondary); text-align: center; }
+        .contact-wrapper { display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto; }
+        .contact-info { width: 100%; }
+        .contact-info h2 { font-size: 2.5rem; margin-bottom: 30px; line-height: 1.3; }
+        .contact-details { display: flex; flex-direction: column; align-items: center; }
+        .contact-details p { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 15px;}
+        .contact-details i { color: var(--accent-start); font-size: 1.5rem; width: 25px;}
+        .social-links { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+        .social-links a {
+            display: flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; background: rgba(255,255,255,0.1);
+            color: var(--secondary); border-radius: 50%; font-size: 1.5rem;
+            text-decoration: none; transition: 0.3s;
+        }
+        .social-links a:hover { background: var(--accent-start); transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 25px; background: #001226; color: #888; font-size: 0.9rem;}
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 992px) {
+            .nav-links { display: none; } /* Giấu menu trên mobile để gọn, có thể thay bằng hamburger menu sau */
+            .hero-wrapper, .edu-wrapper, .project-grid { grid-template-columns: 1fr; flex-direction: column; text-align: center;}
+            .about-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3rem; }
+            .exp-links { justify-content: center; }
+            .core-value { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="#hero" class="logo">Tâm Đàm.</a>
+            <nav class="nav-links">
+                <a href="#about">Về Tôi</a>
+                <a href="#education">Học Vấn</a>
+                <a href="#experience">Kinh Nghiệm</a>
+                <a href="#projects">Dự Án</a>
+                <a href="#skills">Kỹ Năng</a>
+                <a href="#contact">Liên Hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- KHỐI 1: HERO SECTION -->
+    <section id="hero">
+        <div class="container hero-wrapper">
+            <div class="hero-content">
+                <h1 style="font-family: var(--font-heading);">ĐÀM THỊ THANH TÂM</h1>
+                <h2>Digital Marketing Executive</h2>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Hợp tác ngay</a>
+                    <a href="https://drive.google.com/file/d/1hu_4IIZQAIa36dzDqFT3UIaPubWNuYLL/view?usp=sharing" target="_blank" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--primary);"><i class="fa-solid fa-download" style="margin-right: 8px;"></i> Tải CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 2: ABOUT ME -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Về Tôi</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #ddd;">Chuyên gia Marketing với hơn 2 năm kinh nghiệm Marketing thực chiến trong môi trường doanh nghiệp quốc tế, am hiểu sâu sắc cả lĩnh vực B2B, B2C và dịch vụ tư vấn doanh nghiệp.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fa-solid fa-chess-knight" style="font-size: 2.5rem; color: var(--accent-start); margin-bottom: 20px;"></i>
+                    <h3>Lợi thế cạnh tranh</h3>
+                    <p>Thế mạnh kết hợp giữa Data-driven Insight, Planning thực chiến và kinh nghiệm sáng tạo nội dung đa kênh gắn liền với mục tiêu kinh doanh.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-robot" style="font-size: 2.5rem; color: var(--accent-start); margin-bottom: 20px;"></i>
+                    <h3>Năng lực cốt lõi</h3>
+                    <p>Chủ động ứng dụng AI & Automation (n8n, Google AI Studio) để tối ưu hóa quy trình sản xuất nội dung đa kênh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 3: HỌC VẤN & THÀNH TỰU -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--primary);">Học vấn & Thành tựu</h2>
+            <div class="edu-wrapper">
+                <div class="edu-box">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Học vấn</h3>
+                    <div class="edu-item">
+                        <h4>Cử nhân Truyền thông Đa phương tiện</h4>
+                        <p>Đại học Hà Nội (HANU)</p>
+                        <span>2020 – 2024 | Chương trình EMI - GPA: 3.24/4.0</span>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Khóa học Digital Marketing 7 Kênh</h4>
+                        <p>EQVN.net</p>
+                        <span>01/2025 – 06/2025</span>
+                    </div>
+                </div>
+                
+                <div class="edu-box">
+                    <h3><i class="fa-solid fa-trophy"></i> Thành tựu tiêu biểu</h3>
+                    <div class="edu-item">
+                        <h4>Nhân viên cống hiến nhất năm 2025</h4>
+                        <p>UNI Customs Consulting</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Nhân viên xuất sắc tháng 09/2025</h4>
+                        <p>UNI Customs Consulting</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Học bổng khuyến khích học tập</h4>
+                        <p>Đại học Hà Nội</p>
+                        <span>Tháng 11/2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 4: KINH NGHIỆM CHUYÊN MÔN -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Kinh nghiệm Chuyên môn</h2>
+            
+            <div class="exp-card">
+                <div class="exp-header">
+                    <h3>Công ty TNHH Tư vấn UNI</h3>
+                    <h4>Digital Marketing Executive</h4>
+                    <span>03/2024 – Hiện tại</span>
+                </div>
+                <div class="exp-content">
+                    <ul>
+                        <li><span class="highlight-text">Xây dựng & Triển khai kế hoạch Marketing:</span> Phối hợp xây dựng và thực thi chiến dịch "Hỗ trợ Kiểm tra sau thông quan" theo mô hình Pre-launch - Launch - Sustain.</li>
+                        <li><span class="highlight-text">Kết quả:</span> Thu về 71 leads chất lượng, chốt 10 contracts thực tế, đóng góp trực tiếp 450 triệu VNĐ doanh thu mới và duy trì 250 triệu VNĐ/tháng doanh thu định kỳ.</li>
+                        <li><span class="highlight-text">Tối ưu chi phí:</span> Duy trì mức CPL (Cost Per Lead) ở mức tối ưu (~3,8 triệu VNĐ) thông qua việc kết hợp chiến lược Cold Email & Direct Mail.</li>
+                    </ul>
+                    
+                    <div class="exp-links" style="margin: 15px 0 25px 0; justify-content: flex-start;">
+                        <a href="https://drive.google.com/file/d/1TAC27M1Vs5RvT1eNeOSZqI0TY9_veqK_/view?usp=sharing" target="_blank" class="doc-link"><i class="fa-solid fa-file-pdf" style="color: #E2574C; font-size: 1.2rem;"></i> Báo cáo Chiến dịch (PDF)</a>
+                    </div>
+
+                    <ul>
+                        <li><span class="highlight-text">Phát triển bộ nhận diện và công cụ bán hàng:</span>
+                            <ul style="margin-top: 10px; margin-bottom: 0;">
+                                <li>Thiết lập Brand Guidelines chuẩn chỉnh cho doanh nghiệp trên mọi điểm chạm truyền thông (Zalo OA, LinkedIn, Website).</li>
+                                <li>Trực tiếp thiết kế Creative Assets (ấn phẩm truyền thông) và hệ thống Professional Proposal (hồ sơ năng lực/đề xuất giải pháp) chuyên nghiệp cho khách hàng, hỗ trợ trực tiếp cho đội ngũ Sales tăng tỷ lệ chốt deal.</li>
+                            </ul>
+                        </li>
+                        <li style="margin-top: 15px;"><span class="highlight-text">Tự động hóa quy trình:</span> Thiết lập quy trình tự động hóa nội dung qua công cụ n8n, tích hợp AI để sản xuất hình ảnh và nội dung tự động trên LinkedIn Company Pages, đảm bảo tính nhất quán và tần suất đăng bài.</li>
+                    </ul>
+
+                    <a href="https://drive.google.com/file/d/1NUWiT6hL-sGTbErVO1X1iOa42wqKQOl1/view?usp=sharing" target="_blank" style="text-decoration: none; display: block; margin-top: 25px;">
+                        <div class="video-placeholder" style="background: var(--primary); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; height: 140px; box-shadow: 0 10px 20px rgba(0,33,71,0.15);">
+                            <i class="fa-solid fa-play" style="font-size: 2.5rem; color: var(--accent-end); margin-bottom: 10px;"></i>
+                            <span style="color: var(--secondary); font-weight: 600; font-family: var(--font-heading); font-size: 1.2rem; letter-spacing: 0.5px;">Video Demo Automation (n8n & AI)</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 5: DỰ ÁN CÁ NHÂN -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Dự án Cá nhân</h2>
+            <p class="project-intro" style="font-style: italic;">(Kết hợp khả năng lập kế hoạch chiến lược và kinh nghiệm sáng tạo nội dung đa kênh: Facebook, LinkedIn, TikTok)</p>
+            
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3><i class="fa-solid fa-chess-board"></i> Strategic Planning & Management</h3>
+                    <ul>
+                        <li><strong>CTV Content Marketing – Trung tâm Anh ngữ AMES:</strong> Lên kế hoạch, điều phối lịch trình và phân tích dữ liệu hiệu quả nội dung. Thành công trong việc tăng trưởng kênh TikTok từ 6k lên 20k followers chỉ sau 5 tháng hoạt động.</li>
+                        <li><strong>Trưởng nhóm Chăm sóc khách hàng – Yoga Retreat "Bản Chạm":</strong> Chịu trách nhiệm xây dựng quy trình chăm sóc, điều phối nhân sự và đảm bảo tiến độ dự án dưới áp lực công việc cao.</li>
+                        <li><strong>Planner & Researcher – Dự án Cosori:</strong> Thực hiện nghiên cứu thị trường, Insight khách hàng và lập kế hoạch định vị thương hiệu (Brand Positioning). Ý tưởng quảng cáo được lọt top 10 vòng chung kết, nhận giải khuyến khích từ đánh giá trực tiếp của hội đồng giảng viên trường đại học và khách mời từ Media Agency.</li>
+                    </ul>
+                    <div class="core-value" style="font-weight: 500;">
+                        "Khả năng lên kế hoạch, phối hợp với nhiều phòng ban, điều phối nhân sự, theo dõi tiến độ, chịu được áp lực và có trách nhiệm với công việc."
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3><i class="fa-solid fa-video"></i> Video Direction, Creation & Scriptwriting</h3>
+                    <ul>
+                        <li><strong>Sáng tạo nội dung Video (TikTok, Du lịch, Giới thiệu trường):</strong> Trực tiếp đảm nhiệm toàn bộ quy trình từ viết kịch bản (Scripting), chỉ đạo quay (Direction) đến hậu kỳ (Editing) trên các nền tảng máy tính và di động.</li>
+                        <li><strong>Dự án tiêu biểu:</strong> Video giới thiệu Đại học Hà Nội (<a href="https://drive.google.com/file/d/1PjQ6nJedhqzEUmSaUq2MGl6Y4PtmzuB1/view?usp=sharing" target="_blank" style="color: var(--accent-end); font-weight: bold;">HanuTimes</a>), Video TikTok Affiliate (<a href="https://drive.google.com/file/d/1ONDjW9D7-9HRZoKvGVPbLAUkxQkl6geP/view?usp=sharing" target="_blank" style="color: var(--accent-end); font-weight: bold;">Mixi Vietnam</a>), Video trải nghiệm <a href="https://drive.google.com/file/d/1z0K1aVkOMb2ZFmjd_k_yvuxZIehJo0ND/view?usp=sharing" target="_blank" style="color: var(--accent-end); font-weight: bold;">Bảo tàng Dân tộc học</a>.</li>
+                    </ul>
+                    <div class="core-value" style="font-weight: 500;">
+                        "Do đã tiếp xúc với công việc sáng tạo nội dung từ sớm, tôi có khả năng phối hợp nhuần nhuyễn với đội ngũ Content và Media để sản xuất những nội dung hình ảnh có tính lan tỏa và đúng định hướng thương hiệu."
+                    </div>
+                    <a href="https://drive.google.com/file/d/1di5QobGdDVgcVWqzfpIcdwvmGPg2ccF5/view?usp=sharing" target="_blank" style="text-decoration: none; width: 100%; margin-top: auto;">
+                        <div class="video-placeholder" style="margin-top: 0;">
+                            <i class="fa-solid fa-circle-play" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                            <span style="font-family: var(--font-heading); letter-spacing: 0.5px;">Xem Video Recap Tốt nghiệp HANU</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 6: KỸ NĂNG & NGÔN NGỮ -->
+    <section id="skills" style="background-color: var(--secondary); color: var(--primary);">
+        <div class="container">
+            <h2 class="section-title">Kỹ năng & Ngôn ngữ</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-box" style="background-color: var(--secondary); border: 1px solid rgba(0, 33, 71, 0.1);">
+                    <h3><i class="fa-solid fa-language"></i> Ngôn ngữ</h3>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="font-size: 1.1rem;">Tiếng Anh (IELTS 6.5)</strong>
+                        <p style="margin-top: 8px; font-size: 0.95rem; color: #444;">Thành thạo giao tiếp, nói và viết chuyên môn với các đối tác và cấp trên là người nước ngoài. Có khả năng soạn thảo văn bản và Proposal trực tiếp bằng tiếng Anh.</p>
+                    </div>
+                </div>
+
+                <div class="skill-box" style="background-color: var(--secondary); border: 1px solid rgba(0, 33, 71, 0.1);">
+                    <h3><i class="fa-solid fa-microchip"></i> Công nghệ & Công cụ</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;">
+                            <strong>Automation & AI:</strong><br>
+                            <span style="font-size: 0.95rem; color: #444;">n8n, Google AI Studio (Gemini), Claude, ChatGPT.</span>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <strong>Analytics & SEO:</strong><br>
+                            <span style="font-size: 0.95rem; color: #444;">Google Analytics, Google Search Console, Ahrefs.</span>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <strong>Design & Video:</strong><br>
+                            <span style="font-size: 0.95rem; color: #444;">Adobe Premiere Pro, Canva, CapCut PC.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-box" style="background-color: var(--secondary); border: 1px solid rgba(0, 33, 71, 0.1);">
+                    <h3><i class="fa-solid fa-brain"></i> Kỹ năng mềm</h3>
+                    <ul class="soft-skills">
+                        <li>Duy trì hiệu quả công việc dưới áp lực cao.</li>
+                        <li>Khả năng linh hoạt.</li>
+                        <li>Giải quyết vấn đề dựa trên dữ liệu và tình hình thực tế của doanh nghiệp.</li>
+                        <li>Tư duy phản biện và Quản trị dự án.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 7: CTA & CONTACT -->
+    <section id="contact">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <h2 style="font-family: var(--font-heading);">Liên hệ với tôi theo thông tin bên dưới</h2>
+                <div class="contact-details">
+                    <p><i class="fa-solid fa-envelope"></i> mstamdam@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +84 0982 042 558</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Hà Nội, Việt Nam</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/t%C3%A2m-%C4%91%C3%A0m-373497244/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://zalo.me/0982042558" target="_blank" title="Zalo/Message"><i class="fa-solid fa-comment-dots"></i></a>
+                    <a href="https://www.facebook.com/irisdam.film/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Đàm Thị Thanh Tâm. Designed for Data-driven Marketing Portfolio.</p>
+    </footer>
+
+</body>
+</html>
